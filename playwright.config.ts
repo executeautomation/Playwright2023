@@ -27,6 +27,7 @@ export default defineConfig({
     ['json', { outputFile: 'report.json' }]
   ],
   use: {
+    headless: true,
     baseURL: 'http://eaapp.somee.com',
     browserName: 'firefox',
     actionTimeout: 0,
