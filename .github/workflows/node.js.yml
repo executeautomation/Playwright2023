@@ -20,9 +20,12 @@ jobs:
         run: npm ci
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
-      - name: Run Playwright tests
-        run: npx playwright test
-        continue-on-error: true
+      - name: Run headless Playwright test
+        uses: coactions/setup-xvfb@v1
+        with:
+          run: |
+            npx playwright test
+          continue-on-error: true
       - name: Generate Allure report
         run: |
           npm install -D allure-commandline
