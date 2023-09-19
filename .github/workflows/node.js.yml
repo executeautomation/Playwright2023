@@ -46,7 +46,7 @@ jobs:
           name: allure-report
           path: allure-report/
           retention-days: 30
-jobs:
+          
   merge-reports:
     if: always()
     needs: [test]
