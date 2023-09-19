@@ -12,6 +12,9 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
+      matrix:
+        shard: [1/4, 2/4, 3/4, 4/4]    
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -24,8 +27,7 @@ jobs:
       - name: Run headless Playwright test
         uses: coactions/setup-xvfb@v1
         with:
-          run: |
-            npx playwright test
+          run: npx playwright test --shard ${{ matrix.shard }}
           continue-on-error: true
       - name: Generate Allure report
         run: |
@@ -48,4 +50,33 @@ jobs:
         with:
           name: all-blob-reports
           path: blob-report
-          retention-days: 1 
+          retention-days: 1
+          
+  merge-reports:
+    if: always()
+    needs: [test]
+
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 18
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Download blob reports from GitHub Actions Artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: all-blob-reports
+        path: blob-report
+
+    - name: Merge into HTML Report
+      run: npx playwright merge-reports --reporter html,github ./blob-report 
+
+    - name: Upload HTML report
+      uses: actions/upload-artifact@v3
+      with:
+        name: html-report--attempt-${{ github.run_attempt }}
+        path: blob-report
+        retention-days: 14   
