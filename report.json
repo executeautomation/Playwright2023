@@ -1,7 +1,7 @@
 {
   "config": {
-    "configFile": "/Users/karthikkk/Downloads/playwright_UntilTestRunner/playwright.config.ts",
-    "rootDir": "/Users/karthikkk/Downloads/playwright_UntilTestRunner/tests",
+    "configFile": "/Users/karthikkk/tryout/GitRepoCode/Playwright2023/playwright.config.ts",
+    "rootDir": "/Users/karthikkk/tryout/GitRepoCode/Playwright2023/tests",
     "forbidOnly": false,
     "fullyParallel": true,
     "globalSetup": null,
@@ -11,7 +11,7 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "totalTime": 25135.465000003576
+      "actualWorkers": 3
     },
     "preserveOutput": "always",
     "reporter": [
@@ -24,7 +24,11 @@
         null
       ],
       [
-        "/Users/karthikkk/Downloads/playwright_UntilTestRunner/node_modules/allure-playwright/dist/index.js",
+        "/Users/karthikkk/tryout/GitRepoCode/Playwright2023/node_modules/allure-playwright/dist/index.js",
+        null
+      ],
+      [
+        "blob",
         null
       ],
       [
@@ -41,12 +45,12 @@
     "quiet": false,
     "projects": [
       {
-        "outputDir": "/Users/karthikkk/Downloads/playwright_UntilTestRunner/test-results",
+        "outputDir": "/Users/karthikkk/tryout/GitRepoCode/Playwright2023/test-results",
         "repeatEach": 1,
-        "retries": 0,
+        "retries": 2,
         "id": "chromium",
         "name": "chromium",
-        "testDir": "/Users/karthikkk/Downloads/playwright_UntilTestRunner/tests",
+        "testDir": "/Users/karthikkk/tryout/GitRepoCode/Playwright2023/tests",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -54,12 +58,12 @@
         "timeout": 30000
       },
       {
-        "outputDir": "/Users/karthikkk/Downloads/playwright_UntilTestRunner/test-results",
+        "outputDir": "/Users/karthikkk/tryout/GitRepoCode/Playwright2023/test-results",
         "repeatEach": 1,
-        "retries": 0,
+        "retries": 2,
         "id": "webkit",
         "name": "webkit",
-        "testDir": "/Users/karthikkk/Downloads/playwright_UntilTestRunner/tests",
+        "testDir": "/Users/karthikkk/tryout/GitRepoCode/Playwright2023/tests",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -67,10 +71,13 @@
         "timeout": 30000
       }
     ],
-    "shard": null,
+    "shard": {
+      "current": 4,
+      "total": 4
+    },
     "updateSnapshots": "missing",
-    "version": "1.35.1",
-    "workers": 1,
+    "version": "1.38.0",
+    "workers": 5,
     "webServer": null
   },
   "suites": [
@@ -81,7 +88,7 @@
       "line": 0,
       "specs": [
         {
-          "title": "Navigating to Launge of Warehouse website",
+          "title": "Navigating to Launge of Warehouse website - 2",
           "ok": true,
           "tags": [],
           "tests": [
@@ -89,39 +96,124 @@
               "timeout": 30000,
               "annotations": [],
               "expectedStatus": "passed",
-              "projectId": "chromium",
-              "projectName": "chromium",
+              "projectId": "webkit",
+              "projectName": "webkit",
               "results": [
                 {
                   "workerIndex": 0,
                   "status": "passed",
-                  "duration": 23861,
+                  "duration": 3331,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-06-29T00:38:29.171Z",
-                  "attachments": [
-                    {
-                      "name": "video",
-                      "contentType": "video/webm",
-                      "path": "/Users/karthikkk/Downloads/playwright_UntilTestRunner/test-results/warehouse-Navigating-to-Launge-of-Warehouse-website-chromium/video.webm"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "/Users/karthikkk/Downloads/playwright_UntilTestRunner/test-results/warehouse-Navigating-to-Launge-of-Warehouse-website-chromium/trace.zip"
-                    }
-                  ]
+                  "startTime": "2023-09-18T05:33:07.329Z",
+                  "attachments": []
                 }
               ],
               "status": "expected"
             }
           ],
-          "id": "a645baeaf505bbc52b23-c0e9717240f9ba5832c9",
+          "id": "a645baeaf505bbc52b23-ac47d81113b3de0002f6",
           "file": "warehouse.spec.ts",
-          "line": 11,
+          "line": 34,
           "column": 5
+        }
+      ]
+    },
+    {
+      "title": "warehousebdd.spec.ts",
+      "file": "warehousebdd.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Test Navigation of Warehouse website",
+          "file": "warehousebdd.spec.ts",
+          "line": 10,
+          "column": 15,
+          "specs": [
+            {
+              "title": "To Navigate to lounge page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "The firefox browser does not support the feature"
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "status": "skipped",
+                      "duration": 2273,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2023-09-18T05:33:07.331Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9d0168471b437e6a60cd-903090deb257feba1441",
+              "file": "warehousebdd.spec.ts",
+              "line": 12,
+              "column": 9
+            },
+            {
+              "title": "To Navigate to Car Electronics page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "status": "passed",
+                      "duration": 3824,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Hovering over category root",
+                          "duration": 152
+                        },
+                        {
+                          "title": "Clicking on lounge link",
+                          "duration": 498
+                        }
+                      ],
+                      "startTime": "2023-09-18T05:33:07.335Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9d0168471b437e6a60cd-783997f57dd369c30868",
+              "file": "warehousebdd.spec.ts",
+              "line": 34,
+              "column": 9
+            }
+          ]
         }
       ]
     }

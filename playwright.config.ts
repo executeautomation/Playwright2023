@@ -24,6 +24,7 @@ export default defineConfig({
     ['dot'],
     ['list'],
     ['allure-playwright'],
+    ['blob'],
     ['json', { outputFile: 'report.json' }]
   ],
   use: {

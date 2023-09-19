@@ -34,7 +34,7 @@ test.describe.parallel("Test Navigation of Warehouse website", async () => {
     test("To Navigate to Car Electronics page", async ({ page, browserName }, testInfo) => {
 
         test.slow(browserName === 'webkit', 'The browser does not support the feature');
-
+        
         await test.step("Hovering over category root", async () => {
 
             await page.locator("data-test-id=category-root").hover();
