@@ -47,6 +47,7 @@ jobs:
           path: allure-report/
           retention-days: 30
       - uses: actions/upload-artifact@v3
+        if: always()
         with:
           name: all-blob-reports
           path: blob-report
